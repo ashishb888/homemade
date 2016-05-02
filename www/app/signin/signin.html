@@ -1,0 +1,33 @@
+<ion-view side="right" view-title="Sign in" title="Sign in" hide-back-button="true" hide-nav-bar="false">
+  <ion-nav-buttons side="left">
+    <button class="button" ng-click="$ionicGoBack()">
+      <i class=" ion-android-arrow-back"></i>
+    </button>
+  </ion-nav-buttons>
+  <ion-content class="">
+    <div class="list">
+      <form name="signinForm" novalidate>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Mobile number</span>
+          <input type="tel" placeholder="Mobile number"
+          ng-model="signinCtrl.sf.phone" ng-required="true" ng-minlength="10" ng-maxlength="10">
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Password</span>
+          <input type="password" placeholder="Password" ng-model="signinCtrl.sf.password" ng-required="true">
+        </label>
+
+        <button class="button button-full button-positive" ng-disabled="signinForm.$invalid" ng-click="signinCtrl.signin()">
+          Sign in
+        </button>
+      </form>
+
+      <button class="button button-full button-positive" ui-sref="signup">
+        Sign up
+      </button>
+      <button class="button button-full button-positive" ui-sref="forgotpassword">
+        Forgot password?
+      </button>
+    </div>
+  </ion-content>
+</ion-view>
