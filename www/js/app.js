@@ -234,6 +234,51 @@ starter.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider
       url: "/forgotpassword",
       templateUrl: "app/forgotpassword/forgotpassword.html",
       controller: "ForgotPasswordCtrl as fpCtrl"
+    })
+    .state('menu', {
+      url: '/menu',
+      abstract: true,
+      templateUrl: 'app/menu/menu.html'
+    })
+    .state('menu.account', {
+      url: '/account',
+      views: {
+        'menuContent': {
+          templateUrl: 'app/account/account.html'
+        }
+      }
+    })
+    .state('menu.orders', {
+      url: '/orders',
+      views: {
+        'menuContent': {
+          templateUrl: 'app/orders/orders.html'
+        }
+      }
+    })
+    .state('menu.help', {
+      url: '/help',
+      views: {
+        'menuContent': {
+          templateUrl: 'app/help/help.html'
+        }
+      }
+    })
+    .state('menu.signout', {
+      url: '/signout',
+      views: {
+        'menuContent': {
+          templateUrl: 'app/signout/signout.html'
+        }
+      }
+    })
+    .state('menu.tc', {
+      url: '/tc',
+      views: {
+        'menuContent': {
+          templateUrl: 'app/tc/tc.html'
+        }
+      }
     });
 
   console.debug("config() end");
@@ -326,7 +371,7 @@ starter.constant('starterConfig', (function() {
         name: 'title',
         type: 'text'
       }]
-    },{
+    }, {
       name: 'test',
       columns: [{
         name: 'id',
@@ -335,12 +380,12 @@ starter.constant('starterConfig', (function() {
         name: 'name',
         type: 'text'
       }]
-    },{
+    }, {
       name: 'user',
       columns: [{
         name: 'fullname',
         type: 'text'
-      },{
+      }, {
         name: 'username',
         type: 'text'
       }, {
