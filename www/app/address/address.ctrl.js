@@ -9,8 +9,12 @@
     var logger = utilService.getLogger();
     logger.debug("AddressCtrl starts");
     addressCtrl.areaArr = ["Vashi", "Ghansoli", "Tubhre"];
-    addressCtrl.area = null;
+    addressCtrl.area = addressCtrl.areaArr[0];
     addressCtrl.cityArr = ["Mumbai"];
+    addressCtrl.residenceArr = ["College", "Hostel", "Room"];
+    addressCtrl.residence = addressCtrl.residenceArr[0];
+    addressCtrl.sector;
+    addressCtrl.residenceAddr;
 
     // Functions section
     addressCtrl.hideAreaPopover = hideAreaPopover;
