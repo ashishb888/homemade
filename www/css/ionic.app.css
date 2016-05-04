@@ -9788,3 +9788,20 @@ a.button {
   opacity: 0;
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
+
+.topper {
+  margin-top: 10%; }
+
+.c-center, .logo {
+  margin: auto; }
+
+.xlarge {
+  font-size: x-large; }
+
+.logo {
+  content: url("../img/homemade.png");
+  width: 75%;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  border-radius: 15px; }

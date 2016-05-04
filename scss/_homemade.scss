@@ -1,0 +1,20 @@
+@import "mixins";
+
+.topper {
+  margin-top: 10%;
+}
+
+.c-center {
+    margin: auto;
+}
+
+.xlarge {
+  font-size: x-large;
+}
+
+.logo {
+  @extend .c-center;
+  content: url("../img/homemade.png");
+  width: 75%;
+  @include border-radius(15px);
+}

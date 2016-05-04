@@ -10,8 +10,6 @@
     logger.debug("SigninCtrl start");
 
     var signinCtrl = this;
-    signinCtrl.userName;
-    signinCtrl.password;
     // Functions section
     signinCtrl.signin = signin;
 

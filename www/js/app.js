@@ -248,11 +248,19 @@ starter.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider
         }
       }
     })
-    .state('menu.orders', {
-      url: '/orders',
+    .state('menu.placeorder', {
+      url: '/placeorder',
       views: {
         'menuContent': {
-          templateUrl: 'app/orders/orders.html'
+          templateUrl: 'app/orders/place-order.html'
+        }
+      }
+    })
+    .state('menu.prevorders', {
+      url: '/prevorders',
+      views: {
+        'menuContent': {
+          templateUrl: 'app/orders/prev-orders.html'
         }
       }
     })
@@ -279,8 +287,14 @@ starter.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider
           templateUrl: 'app/tc/tc.html'
         }
       }
+    })
+    .state('address', {
+      url: '/address',
+      templateUrl: 'app/address/address.html',
+      controller: "AddressCtrl as addressCtrl"
     });
 
+    $urlRouterProvider.otherwise('/signin');
   console.debug("config() end");
 });
 

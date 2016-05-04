@@ -1,7 +1,7 @@
 <ion-view side="right" view-title="Sign up" title="Sign up" hide-back-button="true" hide-nav-bar="false">
   <ion-nav-buttons side="left">
     <button class="button" ui-sref="signin">
-      <i class=" ion-android-arrow-back"></i>
+      <i class="xlarge ion-android-arrow-back"></i>
     </button>
   </ion-nav-buttons>
   <ion-content class="">
@@ -28,8 +28,8 @@
           <span class="input-label">Re-type password</span>
           <input type="password" placeholder="Re-type password" ng-model="signupCtrl.sf.repassword" ng-required="true">
         </label>
-
-        <button class="button button-full button-positive" ng-disabled="signupForm.$invalid" ng-click="signupCtrl.signup()">
+        
+        <button class="button button-full button-assertive" ng-disabled="signupForm.$invalid" ng-click="signupCtrl.signup()">
           Sign up
         </button>
       </form>
