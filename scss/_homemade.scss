@@ -1,5 +1,10 @@
 @import "mixins";
 
+/* Overriding positive */
+.button.button-positive {
+  background-color: #ef473a !important;
+}
+
 .topper {
   margin-top: 10%;
 }
@@ -17,4 +22,8 @@
   content: url("../img/homemade.png");
   width: 75%;
   @include border-radius(15px);
+}
+
+.bold {
+  font-weight: 700;
 }

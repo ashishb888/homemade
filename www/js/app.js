@@ -12,7 +12,7 @@ var urls = {
   prod: "http://ws.sweet.payin.mobi/sweet/web/public/index.php",
   uat: "http://ws.sweet.payin.mobi/sweet/web/public/index.php",
   dev: "http://dev.sweet.merce.co",
-  local: "http://10.1.1.167",
+  local: "http://10.1.1.167:8000",
   tcUrl: "http://static.sweet.payin.mobi/support/Terms_and_conditions.html",
   prodStaticResUrl: "http://static.sweet.payin.mobi/sweet/web/public",
   devStaticResUrl: "http://dev.sweet.merce.co",
@@ -24,7 +24,7 @@ var urls = {
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-var starter = angular.module('starter', ['ionic', 'ngCordova']);
+var starter = angular.module('starter', ['ionic', 'ngCordova', 'ionic-datepicker']);
 
 starter.run(function($ionicPlatform, utilService, dbService) {
   $ionicPlatform.ready(function() {
@@ -238,7 +238,8 @@ starter.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider
     .state('menu', {
       url: '/menu',
       abstract: true,
-      templateUrl: 'app/menu/menu.html'
+      templateUrl: 'app/menu/menu.html',
+      controller: 'MenuCtrl as menuCtrl'
     })
     .state('menu.account', {
       url: '/account',
@@ -252,7 +253,8 @@ starter.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider
       url: '/placeorder',
       views: {
         'menuContent': {
-          templateUrl: 'app/orders/place-order.html'
+          templateUrl: 'app/orders/place-order.html',
+          controller: 'OrdersCtrl as ordersCtrl'
         }
       }
     })

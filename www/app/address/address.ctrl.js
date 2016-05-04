@@ -1,47 +1,53 @@
 (function() {
   angular.module('starter').controller('AddressCtrl', AddressCtrl);
 
-  AddressCtrl.$inject = ['starterConfig', 'utilService', '$scope', '$ionicPopover'];
+  AddressCtrl.$inject = ['starterConfig', 'utilService', '$scope', 'addressService'];
 
-  function AddressCtrl(sc, utilService, $scope, $ionicPopover) {
+  function AddressCtrl(sc, utilService, $scope, addressService) {
     // Variables section
     var addressCtrl = this;
     var logger = utilService.getLogger();
     logger.debug("AddressCtrl starts");
-    addressCtrl.areaArr = ["Vashi", "Ghansoli", "Tubhre"];
-    addressCtrl.area = addressCtrl.areaArr[0];
+    addressCtrl.sa = {};
     addressCtrl.cityArr = ["Mumbai"];
+    addressCtrl.sa.city = addressCtrl.cityArr[0];
+    addressCtrl.areaArr = ["Vashi", "Ghansoli", "Tubhre"];
+    addressCtrl.sa.area = addressCtrl.areaArr[0];
     addressCtrl.residenceArr = ["College", "Hostel", "Room"];
-    addressCtrl.residence = addressCtrl.residenceArr[0];
-    addressCtrl.sector;
-    addressCtrl.residenceAddr;
+    addressCtrl.sa.residence = addressCtrl.residenceArr[0];
+    addressCtrl.sa.sector;
+    addressCtrl.sa.residenceAddr;
 
     // Functions section
-    addressCtrl.hideAreaPopover = hideAreaPopover;
-    addressCtrl.showAreaPopover = showAreaPopover;
-    addressCtrl.getArea = getArea;
+    addressCtrl.setAddress = setAddress;
 
-    $ionicPopover.fromTemplateUrl("app/address/area-po.html", {
-      scope: $scope
-    }).then(function(areaPopover) {
-      $scope.areaPopover = areaPopover;
-    });
+    function setAddress() {
+      try {
+        logger.debug("setAddress function");
+        logger.debug("address: " + JSON.stringify(addressCtrl.sa));
 
-    function hideAreaPopover($event) {
-      logger.debug("hideAreaPopover function");
-      $scope.areaPopover.hide($event);
-    }
+        if (!utilService.isAppOnlineService()) {
+            utilService.retryService(screenTitle, screenState);
+            return;
+        }
 
-    function showAreaPopover($event) {
-      logger.debug("showAreaPopover function");
-      $scope.areaPopover.show($event);
-    }
+        var promise = addressService.setAddress(addressCtrl.sa);
+        promise.then(function(sucResp){
+            try {
+                var resp = sucResp.data;
 
-    function getArea(area) {
-      logger.debug("getArea function");
-      logger.debug("area: " + area);
-      addressCtrl.area = area;
-      addressCtrl.hideAreaPopover();
+                if (resp.status !== SUCCESS) {
+                    utilService.showAlert(resp);
+                    return;
+                }
+            } catch (exception) {
+                logger.debug("exception: " + exception);
+            }
+        }, function(errResp){
+        });
+      } catch (exception) {
+        logger.debug("exception: " + exception);
+      }
     }
 
     logger.debug("AddressCtrl ends");

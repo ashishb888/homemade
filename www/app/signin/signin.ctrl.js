@@ -17,9 +17,10 @@
     function signin() {
       logger.debug("signin starts");
 
-      if (signinCtrl.isAddressPresent) {
+      if (!signinCtrl.isAddressPresent) {
         $state.go(sc.hfStates.placeorder);
       }else{
+        /*$state.go(sc.hfStates.address);*/
         $state.go(sc.hfStates.address);
       }
 

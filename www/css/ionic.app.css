@@ -9789,6 +9789,10 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
+/* Overriding positive */
+.button.button-positive {
+  background-color: #ef473a !important; }
+
 .topper {
   margin-top: 10%; }
 
@@ -9805,3 +9809,6 @@ a.button {
   -moz-border-radius: 15px;
   -ms-border-radius: 15px;
   border-radius: 15px; }
+
+.bold {
+  font-weight: 700; }

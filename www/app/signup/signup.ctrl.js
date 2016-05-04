@@ -35,8 +35,6 @@
             }
         }, function(errResp){
         });
-
-        logger.debug("signup ends");
       } catch (exception) {
         logger.debug("exception: " + exception);
       }
