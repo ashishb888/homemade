@@ -1,0 +1,34 @@
+<ion-view side="right" view-title="Address" title="Address" hide-back-button="true" hide-nav-bar="false">
+  <ion-nav-buttons side="left">
+    <button class="button" ui-sref="signin">
+      <i class="xlarge ion-android-arrow-back"></i>
+    </button>
+  </ion-nav-buttons>
+  <ion-content class="">
+    <div class="topper">
+    </div>
+    <div class="list">
+      <label class="item item-input item-select">
+        <div class="input-label">
+          City
+        </div>
+        <select disabled="true">
+          <option ng-repeat="c in addressCtrl.cityArr">{{c}}</option>
+        </select>
+      </label>
+      <label class="item item-input item-select">
+        <div class="input-label">
+          Area
+        </div>
+        <select>
+          <option ng-repeat="a in addressCtrl.areaArr">{{a}}</option>
+        </select>
+      </label>
+      <label class="item item-input item-text">
+        <div class="input-label">
+          City
+        </div>
+      </label>
+    </div>
+  </ion-content>
+</ion-view>
