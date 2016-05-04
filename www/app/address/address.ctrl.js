@@ -1,9 +1,9 @@
 (function() {
   angular.module('starter').controller('AddressCtrl', AddressCtrl);
 
-  AddressCtrl.$inject = ['starterConfig', 'utilService', '$scope', 'addressService'];
+  AddressCtrl.$inject = ['starterConfig', 'utilService', '$scope', 'addressService', '$state'];
 
-  function AddressCtrl(sc, utilService, $scope, addressService) {
+  function AddressCtrl(sc, utilService, $scope, addressService, $state) {
     // Variables section
     var addressCtrl = this;
     var logger = utilService.getLogger();
@@ -25,6 +25,9 @@
       try {
         logger.debug("setAddress function");
         logger.debug("address: " + JSON.stringify(addressCtrl.sa));
+
+        $state.go(sc.hfStates.placeorder);
+        return;
 
         if (!utilService.isAppOnlineService()) {
             utilService.retryService(screenTitle, screenState);

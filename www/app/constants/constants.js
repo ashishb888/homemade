@@ -40,9 +40,7 @@ angular.module('starter').constant('starterConfig', (function() {
   var hfStates = {
     address: "address",
     placeorder: "menu.placeorder",
-    wallets: "wallets",
-    settings: "settings",
-    notificationSuc: "notification-suc"
+    signin: "signin"
   };
   var screenTitles = {
     signin: "Sign in",

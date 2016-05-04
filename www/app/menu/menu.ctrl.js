@@ -24,6 +24,7 @@
         confirmPopup.then(function(res) {
           if (res) {
             logger.debug("Signed out");
+            $state.go(sc.hfStates.signin);
           }
         });
       } catch (exception) {
